@@ -11,7 +11,7 @@ describe("Rover class", function() {
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
     let message = new Message('Test message with two commands', commands);
     let rover = new Rover(98382);    // Passes 98382 as the rover's position.
-    let response = rover.receivemessage(message);
+    let response = rover.receiveMessage(message);
   // 7 tests here!
   it("constructor sets position and default values for mode and generatorWatts", function(){
     let rover = new Rover(98382);    
@@ -34,7 +34,7 @@ describe("Rover class", function() {
     let command = new Command('STATUS_CHECK');
     let message = new Message('Test message with two commands', [command]);
     let rover = new Rover(98382);
-    let response= rover.receivemessage(message);
+    let response= rover.receiveMessage(message);
     expect(response.results[0].roverStatus.position).toBe(98382);
     expect(response.results[0].roverStatus.mode).toBe('NORMAL');
     expect(response.results[0].roverStatus.generalWatts).toBe(110);
@@ -45,7 +45,7 @@ describe("Rover class", function() {
     let command = new Command('MODE_CHANGE', 'LOW_POWER');
     let message = new Message('Test message with two commands', [command]);
     let rover = new Rover(98382);
-    let response = rover.receivemessage(message);
+    let response = rover.receiveMessage(message);
     expect(response.results[0].completed).toBe(true);
     expect(rover.mode).toBe('LOW_POWER');
   });
@@ -55,7 +55,7 @@ describe("Rover class", function() {
     let modeCommand = new Command('MODE_CHANGE', 'LOW_POWER');
     let message = new Message('Test message with two commands', [modeCommand, moveCommand]);
     let rover = new Rover(98382);
-    let response = rover.receivemessage(message);
+    let response = rover.receiveMessage(message);
     expect(response.results[1].completed).toBe(false);
   });
   //13 tests here!
@@ -63,7 +63,7 @@ describe("Rover class", function() {
     let modeCommand = new Command('MODE_CHANGE', 'LOW_POWER');
     let message = new Message('Test message with two commands', [modeCommand]);
     let rover = new Rover(98382);
-    let response = rover.receivemessage(message);
+    let response = rover.receiveMessage(message);
     expect(response.results[0].completed).toBe(true);
   });
 });
