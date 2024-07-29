@@ -6,7 +6,7 @@ class Rover {
    constructor(position){
       this.position = position;
       this.mode = "NORMAL";
-      this.generalWatts = 110;
+      this.generatorWatts = 110;
    }
    
    receiveMessage(message){
@@ -34,7 +34,7 @@ class Rover {
             completed: true,
             roverStatus:{
                mode: this.mode,
-               generalWatts: this.generalWatts,
+               generatorWatts: this.generatorWatts,
                position: this.position
             }
          };

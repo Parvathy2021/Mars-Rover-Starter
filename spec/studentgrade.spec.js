@@ -24,7 +24,7 @@ describe("GRADING TEST: ", function() {
     expect(response.results[3].completed).toBeFalsy();
     expect(response.results[4].roverStatus.position).toEqual(4321);
     expect(response.results[4].roverStatus.mode).toEqual('LOW_POWER');
-    expect(response.results[4].roverStatus.generalWatts).toBe(110);
+    expect(response.results[4].roverStatus.generatorWatts).toBe(110);
    });
 
 });

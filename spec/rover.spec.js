@@ -17,7 +17,7 @@ describe("Rover class", function() {
     let rover = new Rover(98382);    
     expect(rover.position).toBe(98382);
     expect(rover.mode).toBe("NORMAL");
-    expect(rover.generalWatts).toBe(110);
+    expect(rover.generatorWatts).toBe(110);
   });
   // 8 tests here!
   it("response returned by receiveMessage contains the name of the message", function(){
@@ -37,7 +37,7 @@ describe("Rover class", function() {
     let response= rover.receiveMessage(message);
     expect(response.results[0].roverStatus.position).toBe(98382);
     expect(response.results[0].roverStatus.mode).toBe('NORMAL');
-    expect(response.results[0].roverStatus.generalWatts).toBe(110);
+    expect(response.results[0].roverStatus.generatorWatts).toBe(110);
    
   });
   // 11 tests here!
