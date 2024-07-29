@@ -42,8 +42,8 @@ describe("Rover class", function() {
   });
   // 11 tests here!
   it('responds correctly to the mode change command', function() {
-    let command = new Command('MODE_CHANGE', 'LOW_POWER');
-    let message = new Message('Test message with two commands', [command]);
+    let modeCommand = new Command('MODE_CHANGE', 'LOW_POWER');
+    let message = new Message('Test message with two commands', [modeCommand]);
     let rover = new Rover(98382);
     let response = rover.receiveMessage(message);
     expect(response.results[0].completed).toBe(true);
