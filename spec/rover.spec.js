@@ -60,7 +60,7 @@ describe("Rover class", function() {
   });
   //13 tests here!
   it('responds correctly to the mode change command', function(){
-    let moveCommand = new Command('MOVE',10000);
+    let moveCommand = new Command('MOVE',12000);
     let message = new Message('Test message with two commands', [moveCommand]);
     let rover = new Rover(98382);
     let response = rover.receiveMessage(message);
